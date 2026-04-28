@@ -11,7 +11,7 @@ const MapPage = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/reports');
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/reports`);
         setReports(res.data);
       } catch (error) {
         console.error('Failed to fetch map data', error);

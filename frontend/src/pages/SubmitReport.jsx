@@ -42,7 +42,7 @@ const SubmitReport = () => {
     setManualLoading(true);
 
     try {
-      await axios.post('http://localhost:5000/api/reports', {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/reports`, {
         description,
         locationName: locationName || undefined,
         location: (lat && lng) ? {
@@ -76,7 +76,7 @@ const SubmitReport = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/ingest/upload', formData, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/ingest/upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       toast.success(`Success! Processed ${response.data.recordsProcessed} record(s).`, { id: toastId });

@@ -47,7 +47,7 @@ const NeedMap = () => {
 
   const fetchHeatmapData = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/reports/heatmap');
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/reports/heatmap`);
       setReports(res.data);
       setLastUpdated(new Date());
     } catch (error) {

@@ -21,7 +21,7 @@ const Dashboard = () => {
     const toastId = toast.loading('Dispatching volunteers...');
     
     try {
-      await axios.post('http://localhost:5000/api/volunteers/sync', {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/volunteers/sync`, {
         lat: areaInfo.lat,
         lng: areaInfo.lng,
         avg_severity: areaInfo.avg_severity || 4,
@@ -40,11 +40,11 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const [reportsRes, insightsRes, recsRes, trendsRes, explRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/reports'),
-          axios.get('http://localhost:5000/api/insights/priority'),
-          axios.get('http://localhost:5000/api/insights/recommendations'),
-          axios.get('http://localhost:5000/api/insights/trends'),
-          axios.get('http://localhost:5000/api/insights/explanations')
+          axios.get(`${import.meta.env.VITE_API_URL}/api/reports`),
+          axios.get(`${import.meta.env.VITE_API_URL}/api/insights/priority`),
+          axios.get(`${import.meta.env.VITE_API_URL}/api/insights/recommendations`),
+          axios.get(`${import.meta.env.VITE_API_URL}/api/insights/trends`),
+          axios.get(`${import.meta.env.VITE_API_URL}/api/insights/explanations`)
         ]);
         
         setReports(reportsRes.data);
