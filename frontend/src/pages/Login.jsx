@@ -26,6 +26,19 @@ const Login = () => {
       <h1 className="page-title" style={{ textAlign: 'center' }}>Login</h1>
       <div className="card">
         {error && <div style={{ color: '#EF4444', marginBottom: '1rem' }}>{error}</div>}
+        <div style={{ 
+          backgroundColor: 'rgba(59, 130, 246, 0.1)', 
+          border: '1px solid #3B82F6', 
+          borderRadius: '8px', 
+          padding: '0.75rem', 
+          marginBottom: '1.5rem', 
+          fontSize: '0.85rem', 
+          color: '#3B82F6',
+          textAlign: 'center',
+          lineHeight: '1.4'
+        }}>
+          <strong>Note:</strong> Please wait couple of seconds for the backend <b>render</b> server to wake up if it's currently inactive.
+        </div>
         <form onSubmit={handleLogin}>
           <input 
             type="email" 
